@@ -1,7 +1,8 @@
 import matplotlib.pyplot as plt
 from . scatter import ScatterMixin
+from . line import LineMixin
 
-class Plot(ScatterMixin):
+class Plot(ScatterMixin, LineMixin):
     def __init__(self, data=None, ax=None, title=None):
         self.data = data
         if ax is None:
