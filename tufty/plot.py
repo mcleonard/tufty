@@ -1,6 +1,6 @@
 import matplotlib.pyplot as plt
-from . scatter import ScatterMixin
-from . line import LineMixin
+from .scatter import ScatterMixin
+from .line import LineMixin
 
 class Plot(ScatterMixin, LineMixin):
     def __init__(self, data=None, ax=None, title=None):
@@ -31,7 +31,7 @@ class Plot(ScatterMixin, LineMixin):
     def __repr__(self):
         return "tufty.Plot"
 
-def subplots(data=None, figsize=None, nrows=1, ncols=1, w_pad=1, h_pad=1):
+def plotgrid(data=None, figsize=None, nrows=1, ncols=1, w_pad=1, h_pad=1):
     """ 
     Arguments
     ---------

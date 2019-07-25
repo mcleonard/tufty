@@ -18,7 +18,7 @@ class LineMixin:
     def line(self, x, y, color=None):
         if self.data is not None:
             handle_df(self, x, y, color=color)
-            
+
         else:
             _line(self.ax, x, y, color=color)
         

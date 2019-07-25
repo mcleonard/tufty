@@ -1,6 +1,7 @@
 from . import datasets
-from .plot import Plot, subplots
+from .plot import Plot, plotgrid
 from . import style
+from matplotlib.pyplot import cm
 
 style.style()
 
