@@ -3,7 +3,6 @@ import numpy as np
 
 
 def convert_kwargs(kwargs):
-    
     for mpl_key, tft_key in zip(('s', 'c'), ('size', 'color')):
         try:
             val = kwargs.pop(tft_key)
@@ -23,7 +22,7 @@ def handle_colors(plot, x, y, **kwargs):
     # Note/TODO: This could be faster by setting the color as an array instead
     # of doing the groupby operation. Consider refactoring if it's really slow.
     color = kwargs.pop('color')
-    series =  plot.data[color]
+    series = plot.data[color]
     if series.dtype == np.dtype("O"):
         ## Colors from categorical column
         for group, group_data in plot.data.groupby(color):
@@ -31,8 +30,10 @@ def handle_colors(plot, x, y, **kwargs):
         
     else:
         ## Colors from numerical column
-        _scatter(plot, plot.data[x], plot.data[y], color=plot.data[color], **kwargs)
-    plot.labels(x, y)
+        _scatter(plot, plot.data[x], plot.data[y], 
+                 color=plot.data[color], 
+                 label=color, **kwargs)
+    plot.labels(x, y).legend()
 
 def handle_df(plot, x, y, **kwargs):
         
